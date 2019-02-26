@@ -5,4 +5,4 @@ import matplotlib.pyplot as plt
 import seaborn as sb
 
 # get_ipython().run_line_magic('matplotlib', 'inline')
- lot of mistakes ....
+#lucy's comments
