@@ -4,4 +4,4 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sb
 
-get_ipython().run_line_magic('matplotlib', 'inline')
+# get_ipython().run_line_magic('matplotlib', 'inline')
