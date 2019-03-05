@@ -7,8 +7,8 @@
 * git push
 * git pull
 * git checkout
-git clone
-git status
-git commit
+* git clone
+* git status
+* git commit
 
 
