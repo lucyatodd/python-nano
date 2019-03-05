@@ -2,4 +2,13 @@
 
 # Lucy's Udacity Project Work
 
-## Test
+## GIT Commmand
+
+* git push
+* git pull
+* git checkout
+git clone
+git status
+git commit
+
+
