@@ -17,12 +17,12 @@ pip install plotly
 
 https://plot.ly/python/getting-started/
 
-> python3 src/plotly/init.py
-> python3 src/plotly/setup.py
+* python3 src/plotly/init.py
+*  python3 src/plotly/setup.py
 
 In home directory /Users/paultodd/.plotly
 
-Inside .credetials
+Inside .credentials
 
 {
     "username": "toddpa",
@@ -33,3 +33,5 @@ Inside .credetials
 }
 
 Note the api_key
+
+Get an api_key from plotly account Setup
