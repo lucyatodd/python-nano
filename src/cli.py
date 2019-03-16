@@ -5,15 +5,15 @@ from utilities.text import fnSay
 
 @click.command()
 # @click.option('--count', default=1, help='Number of greetings.')
-@click.option('--function', required=False, help='call a function')
-@click.option('--list', required=False, help='list functions.')
-@click.option('--arg', required=False, default="", help='argument')
+@click.option('--function', '-f', required=False, help='call a function')
+@click.option('--show', '-s', is_flag=True, required=False, help='list functions.')
+@click.option('--arg', '-a', required=False, default="", help='argument')
 
-def commands(function, arg, list):
+def commands(function, arg, show):
     """Simple program that greets NAME for a total of COUNT times."""
-    if list:
+    if show:
        print("functions: sinmatplot | hello")
-    elif function:
+    if function:
        if function == "sinmatplot":
           chart()
        if function == "hello":
@@ -21,7 +21,7 @@ def commands(function, arg, list):
        else:
           raise AssertionError("Function " + function + " does not exit")
     else:
-       raise AssertionError("usage: cli.py --function --list --arg")
+       raise AssertionError("usage: cli.py --function [sinmatplot | hello] --list --arg")
  
 if __name__ == '__main__':
    try:
