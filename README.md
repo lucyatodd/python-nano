@@ -28,7 +28,7 @@ export PATH="/Users/paultodd/anaconda3/bin:/usr/local/Cellar/python/2.7.13/bin:$
 
 ## Webserver
 
-## ~Plotly was a DeadEnd
+## ~~Plotly was a DeadEnd~~
 
 pip install plotly
 
