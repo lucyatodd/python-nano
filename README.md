@@ -12,13 +12,13 @@
 * git commit
 
 ## Python Environment
-// added by Anaconda3 5.1.0 installer
+### added by Anaconda3 5.1.0 installer
 export PATH="/Users/paultodd/anaconda3/bin:/usr/local/Cellar/python/2.7.13/bin:$PATH"
 
-// Add these alais to your ~/.bash_profile 
-alias py=~/anaconda3/bin/python3
-alias py3=~/anaconda3/bin/python3
-alias py2=/usr/bin/python2.7
+### Add these alais to your ~/.bash_profile 
+* alias py=~/anaconda3/bin/python3
+* alias py3=~/anaconda3/bin/python3
+* alias py2=/usr/bin/python2.7
 
 ## MatPlot Charts
 
