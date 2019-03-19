@@ -22,6 +22,25 @@ export PATH="/Users/paultodd/anaconda3/bin:/usr/local/Cellar/python/2.7.13/bin:$
 * alias py3=~/anaconda3/bin/python3
 * alias py2=/usr/bin/python2.7
 
+To the AirBook we did the following
+create a file callled .bash_profile using 
+> nano .bash_ profile
+
+Edited the file
+added the line
+alais py=~/ananconda/bin/python
+
+changed the properties of the file to be executable
+> chmod +x .bash_profile
+
+resarted the .bash_priofile to to take effect using the command
+
+> source ~/.bash_profile
+
+Tested the alais
+
+> py --version
+
 ## MatPlot Charts
 
 ## Bokeh Charts
