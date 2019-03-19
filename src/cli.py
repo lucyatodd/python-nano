@@ -2,6 +2,7 @@ import click
 
 from charts.sinmatplot import chart
 from utilities.text import fnSay
+from nano_degree.template.report import outputHTML
 
 @click.command()
 # @click.option('--count', default=1, help='Number of greetings.')
@@ -14,15 +15,19 @@ def commands(function, arg, show):
     if show:
        print("functions: sinmatplot | hello")
     if function:
+       if function == "chart":
+          chart()
        if function == "sinmatplot":
           chart()
        if function == "hello":
           fnSay(arg)
+       if function == "report":
+          outputHTML(arg)
        else:
           raise AssertionError("Function " + function + " does not exit")
-    else:
-       raise AssertionError("usage: cli.py --function [sinmatplot | hello] --list --arg")
- 
+    # else:
+       # raise AssertionError("usage: cli.py --function [sinmatplot | hello] --list --arg")
+
 if __name__ == '__main__':
    try:
     commands()
