@@ -1,7 +1,7 @@
 import click
 
 from charts.sinmatplot import chart
-from utilities.text import fnSay
+from utilities.text import greet, swear
 from nano_degree.template.report import outputHTML
 
 @click.command()
@@ -17,11 +17,13 @@ def commands(function, arg, show):
     if function:
        if function == "chart":
           chart()
-       if function == "sinmatplot":
+       elif function == "sinmatplot":
           chart()
-       if function == "hello":
-          fnSay(arg)
-       if function == "report":
+       elif function == "greet":
+          greet(arg)
+       elif function == "abuse":
+          swear(arg)
+       elif function == "report":
           outputHTML(arg)
        else:
           raise AssertionError("Function " + function + " does not exit")
