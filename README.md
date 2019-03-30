@@ -47,6 +47,10 @@ Tested the alais
 
 ## Webserver
 
+# Mongo
+
+# MySQL on AWS
+
 ## ~~Plotly was a DeadEnd~~
 
 pip install plotly
