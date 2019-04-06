@@ -13,3 +13,4 @@ for subject in subjects:
    print('topic ', subject)
 
 client.close()
+
