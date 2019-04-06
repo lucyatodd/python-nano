@@ -1,5 +1,5 @@
 python-nano.code-workspace
 /data/**/*
 connectivity.md
-src/mysql/connectMySQL.py
-src/mongo/connectMongo.py
+config.properties
+
