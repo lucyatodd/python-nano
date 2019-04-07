@@ -60,10 +60,6 @@ cnx.commit()
 cursor.execute("SELECT count(*) FROM Zoo")
 result = cursor.fetchone()
 
-print((result[0] - before_import[0]) == len(book.index))  # should be True
-
-# Close the database connection
-cnx.close()
-
+print((result[0] - before_import[0]) == len(book.index))
 
 
