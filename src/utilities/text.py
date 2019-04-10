@@ -2,7 +2,8 @@ import logging
 import logging.config
 
 logging.config.fileConfig("logging.properties")
-logger = logging.getLogger("simpleExample")
+#logger = logging.getLogger("simpleExample")
+logger = logging.getLogger()
 
 def greet(arg):
    print('Hiya ', arg)

@@ -2,5 +2,3 @@ python-nano.code-workspace
 /data/**/*
 connectivity.md
 config.properties
-
-config.1.properties
