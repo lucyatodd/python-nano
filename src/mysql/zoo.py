@@ -1,7 +1,13 @@
+import logging
+import logging.config
 from mysql.connector import (connection)
 import configparser
 import io
 import pandas as pd
+from IPython.display import display
+
+logging.config.fileConfig("logging.properties")
+logger = logging.getLogger("simpleExample")
 
 config = configparser.RawConfigParser()
 config.read("config.properties")
@@ -14,44 +20,58 @@ database = config.get('DatabaseSection','mysql.database')
 
 cnx = connection.MySQLConnection(user=user, password=password, host=host, port=port, database=database)
 
-cursor = database.cursor()
+if (cnx) :
+    logger.info("Connected")
+
+cursor = cnx.cursor()
 
 # read data
 book = pd.read_excel('Zoo_data.xlsx')
-book.head()
 
-query1 = """
-    CREATE TABLE [Zoo](
+
+if book is None : 
+    logger.error("book not imported") 
+
+display(book.head())
+
+dropZooTableDDL = "DROP TABLE Zoo"
+
+
+createZooTableDDL = """
+    CREATE TABLE  Zoo (
         Name varchar(255),
-        Class varchar(255),
-        Population varchar(255)
+        Class varchar(255)
     )"""
 
-query = """
-    INSERT INTO [Zoo] (
-        Name varchar(255),
-        Class varchar(255),
-        Population varchar(255)
-    ) VALUES (?, ?, ?)"""
+insertSQL = """
+    INSERT INTO Zoo(Name, Class) 
+    VALUES (?, ?)"""
 
-# execute create table
-cursor.execute(query1)
+logger.debug("Dropping Zoo Table")
+cursor.execute(dropZooTableDDL)
+cnx.commit()
+
+logger.debug("Creating Zoo Table")
+cursor.execute(createZooTableDDL)
 cnx.commit()
 
 # grab existing row count in the database for validation later
 cursor.execute("SELECT count(*) FROM Zoo")
 before_import = cursor.fetchone()
 
-for r in range(1, book.nrows):
-    Name = book.cell(r,0).value
-    Class = book.cell(r,1).value
-    Population = book.cell(r,2).value
+rowCount = len(book.index)
+for r in range(1, rowCount):
+    name = book.iloc[r,0]
+    clazz = book.iloc[r,1]
+    population = book.iloc[r,2]
 
     # Assign values from each row
-    values = (Name, Class, Population)
+    values = (name, clazz)
+
+    logger.debug("name: " + name)
 
     # Execute sql Query
-    cursor.execute(query, values)
+    cursor.execute(insertSQL, name, clazz)
 
 # Commit the transaction
 cnx.commit()
@@ -60,6 +80,6 @@ cnx.commit()
 cursor.execute("SELECT count(*) FROM Zoo")
 result = cursor.fetchone()
 
-print((result[0] - before_import[0]) == len(book.index))
+logger.info((result[0] - before_import[0]) == len(book.index))
 
 
