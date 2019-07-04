@@ -1,6 +1,7 @@
 from mysql.connector import (connection)
 import configparser
 import io
+from la_mysql.db import connection
 
 # Make the SQL command to executed
 def makesql(id, subject, desc):
@@ -25,12 +26,12 @@ port = config.get('DatabaseSection','mysql.port')
 database = config.get('DatabaseSection','mysql.database')
 
 details = f"{user} {password} {host} {port} {database}"
-print("deatils ", details)
+print("details ", details)
 
-cnx = connection.MySQLConnection(user=user, password=password, host=host, port=port, database=database)
+cnx = connection.openWith(user=user, password=password, host=host, port=port, database=database)
 
 print("Connected ....")
 mycursor = cnx.cursor()
-insert(mycursor, 30)
+insert(mycursor, 90)
 print("insert_exectued")
 cnx.close()
