@@ -1,4 +1,4 @@
-from text import greet, swear
+from src.utilities.text import greet, swear
 
 # Call a function the is located in the file text.py in this directory
 greet("greet works")
